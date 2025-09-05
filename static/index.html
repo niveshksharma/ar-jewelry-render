@@ -1,0 +1,81 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AR Jewelry Try-On (Python + MediaPipe)</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header><h1>💍 AR Jewelry Try‑On (Python backend)</h1></header>
+  <main>
+    <section class="stage">
+      <div class="videoWrap">
+        <video id="video" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="panel">
+        <h2>Toggle items & pick styles</h2>
+        <div class="row">
+          <button class="pill" data-toggle="earrings">Earrings</button>
+          <button class="pill" data-toggle="necklace">Necklace</button>
+          <button class="pill" data-toggle="nosepin">Nose pin</button>
+        </div>
+        <div class="grid2">
+          <div><label>Earrings</label>
+            <select id="earStyle">
+              <option value="stud">Stud</option>
+              <option value="hoop">Hoop</option>
+              <option value="drop">Drop</option>
+            </select>
+          </div>
+          <div><label>Necklace</label>
+            <select id="neckStyle">
+              <option value="chain">Chain</option>
+              <option value="pearl">Pearl</option>
+              <option value="pendant">Pendant</option>
+            </select>
+          </div>
+          <div><label>Nose pin</label>
+            <select id="noseStyle">
+              <option value="dot">Dot</option>
+              <option value="stud">Stud</option>
+              <option value="ring">Ring</option>
+            </select>
+          </div>
+          <div><label>Scale</label>
+            <select id="scaleBoost">
+              <option value="1">1×</option>
+              <option value="1.2">1.2×</option>
+              <option value="1.4">1.4×</option>
+              <option value="0.85">0.85×</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <button id="snapshot">📷 Save Snapshot</button>
+        </div>
+        <div class="status">
+          <span class="dot" id="camDot"></span><span id="camStatus">Camera: —</span>
+          <span class="dot" id="wsDot"></span><span id="wsStatus">WS: —</span>
+          <span class="dot" id="faceDot"></span><span id="faceStatus">Face: —</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Custom PNGs (optional)</h2>
+        <div class="grid2">
+          <div><label>Custom Earrings</label><input id="earImg" type="file" accept="image/*"/></div>
+          <div><label>Custom Necklace</label><input id="neckImg" type="file" accept="image/*"/></div>
+          <div><label>Custom Nose pin</label><input id="noseImg" type="file" accept="image/*"/></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
